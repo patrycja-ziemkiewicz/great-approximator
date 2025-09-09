@@ -66,6 +66,19 @@ Each line represents a PUT: ```PUT $point $value```.
 - PENALTY / BAD_PUT – client mistake notifications.
 - SCORING – final results with error values per player.
 
+## Project Structure
+
+- Makefile → Build instructions
+- README.md → Project documentation
+- approx-server.c → TCP server implementation
+- approx-client.c → TCP client implementation
+- client.h → Server-side structure for managing connected clients
+- cb.c / cb.h → Circular buffer for managing incoming TCP message streams
+- queue.c / queue.h → Priority queue (event queue) used for scheduling and managing message flow per client
+- err.c / err.h → Error handling utilities (prints diagnostics, handles fatal errors)
+- common.c / common.h → Parsing and validating parameters, handling low-level TCP operations, address resolution, port parsing, etc.
+- messages.c / messages.h → Functions for composing, validating, and parsing protocol messages
+
 ## Example
 Start the server:
 ```bash
